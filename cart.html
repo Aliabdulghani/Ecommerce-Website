@@ -57,15 +57,16 @@
                         <td><a href="#"><i class="far fa-times-circle"></i></a></td>
                         <td><img src="img/products/f1.jpg" alt=""></td>
                         <td>Cartoon Astronaut T-Shirts</td>
-                        <td>$118.15</td>
-                        <td><input class="quantity" type="number" value="1"></td>
+                        <td>$<span class="Price">118.15</span></td>
+                        <td><input class="quantity" type="number" value="1">
+                        </td>
                         <td>$<span class="total">118.15</span></td>
                     </tr>
                     <tr>
                         <td><a href="#"><i class="far fa-times-circle"></i></a></td>
                         <td><img src="img/products/f2.jpg" alt=""></td>
                         <td>Cartoon Astronaut T-Shirts</td>
-                        <td>$118.15</td>
+                        <td>$<span class="Price">118.15</span></td>
                         <td><input class="quantity" type="number" value="1"></td>
                         <td>$<span class="total">118.15</span></td>
                     </tr>
@@ -73,7 +74,7 @@
                         <td><a href="#"><i class="far fa-times-circle"></i></a></td>
                         <td><img src="img/products/f3.jpg" alt=""></td>
                         <td>Cartoon Astronaut T-Shirts</td>
-                        <td>$118.15</td>
+                        <td>$<span class="Price">118.15</span></td>
                         <td><input class="quantity" type="number" value="1"></td>
                         <td>$<span class="total">118.15</span></td>
                     </tr>
@@ -161,20 +162,37 @@
         </footer>
         <!-- End Footer -->
         <script>
-            // let quantity = document.querySelectorAll(".quantity");
-            // for (let i = 0; i < quantity.length; i++) {
-            //     console.log(quantity[i].value);
-            // }
-            let total = document.querySelectorAll(".total");
             let element = 0;
+            let tot = 0;
+            let a = 1;
+            let quantity = document.querySelectorAll(".quantity");
+            let total = document.querySelectorAll(".total");
+            let totalAll = document.querySelector("#totalAll");
+            quantity[0].onchange = function () {
+                a = quantity[0].value;
+                tot = a * 118.15;
+                total[0].innerHTML = Math.floor(tot);
+                window.sessionStorage.setItem("total1", total[0].innerHTML);
+            }
+            quantity[1].onchange = function () {
+                a = quantity[1].value;
+                tot = a * 118.15;
+                total[1].innerHTML = Math.floor(tot);
+                window.sessionStorage.setItem("total2", total[1].innerHTML);
+            }
+            quantity[2].onchange = function () {
+                a = quantity[2].value;
+                tot = a * 118.15;
+                total[2].innerHTML = Math.floor(tot);
+                window.sessionStorage.setItem("total3", total[2].innerHTML);
+            }
+            tot = Math.floor(element);
             for (let i = 0; i < total.length; i++) {
                 element += +total[i].innerHTML;
             }
-            let tot = Math.floor(element);
-            let totalAll = document.querySelectorAll("#totalAll");
-            console.log(totalAll[0].innerHTML);
-            totalAll[0].innerHTML = tot;
-            console.log(totalAll[0].innerHTML);
+            tot = Math.floor(element);
+            console.log(window.sessionStorage.getItem("total1"));
+            totalAll.innerHTML = tot;
         </script>
         <script src="script.js"></script>
     </body>

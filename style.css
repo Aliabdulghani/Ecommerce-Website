@@ -1076,11 +1076,6 @@ footer .copyright {
     font-size: 24px;
   }
 
-  #mobile a {
-    position: relative;
-    z-index: -1;
-  }
-
   #mobile a.active::after,
   #mobile a:hover::after {
     content: "";
